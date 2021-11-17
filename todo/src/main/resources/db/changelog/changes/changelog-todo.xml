@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="furkan.sahin" id="1">
+        <createTable tableName="board">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="text"/>
+            <column name="uuid" type="text">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="uuid"
+                constraintName="unq_uuid"
+                tableName="board"/>
+        <createTable tableName="task">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="board_id" type="int">
+                <constraints referencedTableName="board"
+                             foreignKeyName="fk_task_boaard_id"
+                             referencedColumnNames="id"
+                             nullable="false"/>
+            </column>
+            <column name="uuid" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="text"/>
+            <column name="userid" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="text"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="board"/>
+            <dropTable tableName="task"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

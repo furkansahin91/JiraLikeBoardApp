@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "5f598a0d-0228-4bad-9087-589d033d4912",
+		"name": "JiraLikeBoardApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getBoards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postBoard",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"board1\",\n    \"description\":\"General Board\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/boards",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"task1\",\n    \"description\":\"ToDo Task1\",\n    \"user\":\"82992a63-4872-4f98-a364-fbde8a648dd0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/boards/85b2d03c-b2d9-4526-96a2-dd29d84d74b2/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"boards",
+						"85b2d03c-b2d9-4526-96a2-dd29d84d74b2",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putTask",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"task2\",\n    \"description\":\"ToDo Task2\",\n    \"user\":\"82992a63-4872-4f98-a364-fbde8a648dd0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/tasks/4e386514-db95-488d-8664-8ba741ae2594",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"tasks",
+						"4e386514-db95-488d-8664-8ba741ae2594"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchTask",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"task3\",\n    \"description\":\"ToDo Task3\",\n    \"user\":\"82992a63-4872-4f98-a364-fbde8a648dd0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/tasks/c7be340b-b751-470c-b710-156edb0f8244",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"tasks",
+						"c7be340b-b751-470c-b710-156edb0f8244"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/tasks/c7be340b-b751-470c-b710-156edb0f8244",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"tasks",
+						"c7be340b-b751-470c-b710-156edb0f8244"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBoardById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/boards/76390254-86a9-4b68-b965-948c7025997f",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"boards",
+						"76390254-86a9-4b68-b965-948c7025997f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBoardById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/boards/76390254-86a9-4b68-b965-948c7025997",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"boards",
+						"76390254-86a9-4b68-b965-948c7025997"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/users/1c943f85-d2d1-4760-8bb4-2a88142c7ebf",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"users",
+						"1c943f85-d2d1-4760-8bb4-2a88142c7ebf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
